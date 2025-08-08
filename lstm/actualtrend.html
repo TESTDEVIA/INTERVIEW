@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">  
+  <title>actualTrend</title>
+</head>
+<body>
+  <h1>actualTrend</h1>
+
+  <script>
+    // Obtén el valor de symbol de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const symbol = urlParams.get('symbol') || "BTCBUSD";
+
+    // Construye la clave del Local Storage
+    const key = `localstorage://${symbol}`;
+
+    // Obtiene el valor de actualTrend del Local Storage
+    const actualTrend = localStorage.getItem(key);
+
+    // Muestra el valor de actualTrend en la página
+    const resultElement = document.createElement('p');
+    resultElement.textContent = `Tendencia actual para ${symbol}: ${actualTrend}`;
+    resultElement.id = 'actual-trend';
+    document.body.appendChild(resultElement);
+  </script>
+</body>
+</html>

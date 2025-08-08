@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Modelo de Aprendizaje Automático con TensorFlow</title>
+
+  <!-- Import TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+  <!-- Import tfjs-vis -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"></script>
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+</head>
+
+<body>
+  <h1>Merlin</h1>
+  <p>Modelo de aprendizaje automático liviano para predecir tendencias</p>
+  <div id="scatterplot-container" class="tf-scatterplot"></div>
+  <div id="linechart-container" class="tf-scatterplot"></div>
+  <div id="predictions-container"></div>
+
+  <!-- Import the main script file -->
+  <script>
+
+    function obtenerValorParametro(nombre) {
+      var urlParams = new URLSearchParams(window.location.search);
+      console.log(nombre,"=",urlParams.get(nombre));
+      return urlParams.get(nombre);
+    }
+
+    var globalSymbol = obtenerValorParametro('simbolo'); 
+    var globalEpochs = obtenerValorParametro('epochs'); 
+  </script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
